@@ -1,0 +1,3 @@
+[submodule "bee-ui"]
+	path = bee-ui
+	url = git@github.com:ferditatlisu/kueuebee-ui.git
