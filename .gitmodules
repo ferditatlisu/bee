@@ -1,3 +1,6 @@
 [submodule "bee-ui"]
 	path = bee-ui
 	url = git@github.com:ferditatlisu/kueuebee-ui.git
+[submodule "bee-copy"]
+	path = bee-copy
+	url = git@github.com:ferditatlisu/bee-copy.git
