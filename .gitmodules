@@ -4,3 +4,6 @@
 [submodule "bee-copy"]
 	path = bee-copy
 	url = git@github.com:ferditatlisu/bee-copy.git
+[submodule "bee-search"]
+	path = bee-search
+	url = git@github.com:ferditatlisu/bee-search.git
