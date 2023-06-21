@@ -7,3 +7,6 @@
 [submodule "bee-search"]
 	path = bee-search
 	url = git@github.com:ferditatlisu/bee-search.git
+[submodule "bee-pod-master"]
+	path = bee-pod-master
+	url = git@github.com:ferditatlisu/bee-pod-master.git
