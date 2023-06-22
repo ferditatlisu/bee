@@ -10,3 +10,6 @@
 [submodule "bee-pod-master"]
 	path = bee-pod-master
 	url = git@github.com:ferditatlisu/bee-pod-master.git
+[submodule "bee-api"]
+	path = bee-api
+	url = git@github.com:ferditatlisu/bee-api.git
