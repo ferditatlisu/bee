@@ -34,7 +34,11 @@ spec:
             - name: REDIS_DB
               value: "13"
             - name: POD_MASTER_URL
+<<<<<<< HEAD
               value: pod-master-url
+=======
+              value: https://product-listing-kafka-search-api-pod-master.stage.trendyol.com
+>>>>>>> e04ba3e897b86343eb7454ffe02c546a4feaa3fc
             - name: COPY_IMAGE
               value: tatlisu/bee:copy-0.1
             - name: SEARCH_IMAGE

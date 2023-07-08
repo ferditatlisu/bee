@@ -19,7 +19,11 @@ spec:
         image: tatlisu/bee:ui-0.1
         env:
         - name: KB_API
+<<<<<<< HEAD
           value: bee-api-url
+=======
+          value: https://product-listing-kafka-search-api.stage.trendyol.com
+>>>>>>> e04ba3e897b86343eb7454ffe02c546a4feaa3fc
         - name: SLACK_URL
           value: ''
         ports:
@@ -32,9 +36,20 @@ metadata:
 spec:
   selector:
     app: bee-ui
+<<<<<<< HEAD
   type: LoadBalancer
+=======
+  type: LoadBalancer #External!!
+>>>>>>> e04ba3e897b86343eb7454ffe02c546a4feaa3fc
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
+<<<<<<< HEAD
       nodePort: 30000
+=======
+      nodePort: 30000
+
+  #     KB_API: http://localhost:8082
+  #     SLACK_URL: slack://channel?team=T03Q89XFN&id=C058R54EG73
+>>>>>>> e04ba3e897b86343eb7454ffe02c546a4feaa3fc
