@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bee-pod-master-deployment
+  labels:
+    app: bee-pod-master
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bee-pod-master
+  template:
+    metadata:
+      labels:
+        app: bee-pod-master
+    spec:
+      restartPolicy: Always
+      containers:
+      - name: bee-pod-master
+        image: tatlisu/bee:pod-master-0.11
+        env:
+            - name: ENVIRONMENT
+              value: stage
+            - name: MASTER_URL
+              value: pod-master-url
+            - name: REDIS_HOST
+              value: host-1,host-2,host-3
+            - name: REDIS_PASSWORD
+              value: password
+            - name: REDIS_MASTERNAME
+              value: master_name
+            - name: REDIS_PORT
+              value: "26379"
+            - name: REDIS_DB
+              value: "13"
+            - name: POD_MASTER_URL
+              value: pod-master-url
+            - name: COPY_IMAGE
+              value: tatlisu/bee:copy-0.1
+            - name: SEARCH_IMAGE
+              value: tatlisu/bee:search-0.1
+            - name: NAMESPACE
+              value: default 
+            - name: SERVICE_ACCOUNT_NAME
+              value: bee-sa #bee-sa must have create&delete permissions
+            - name: KAFKA_CONFIGS
+              value: |
+                  [
+                    {
+                      "id" : 0,
+                      "name": "Earth",
+                      "host": "ip-1:9092, ip-2:9092"
+                    }
+                  ]
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bee-pod-master-service
+spec:
+  selector:
+    app: bee-pod-master
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30002

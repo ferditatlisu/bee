@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bee-api-deployment
+  labels:
+    app: bee-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bee-api
+  template:
+    metadata:
+      labels:
+        app: bee-api
+    spec:
+      restartPolicy: Always
+      containers:
+      - name: bee-api
+        image: tatlisu/bee:api-0.1
+        env:
+            - name: ENVIRONMENT
+              value: stage
+            - name: MASTER_URL
+              value: pod-master-url
+            - name: REDIS_HOST
+              value: host-1,host-2,host-3
+            - name: REDIS_PASSWORD
+              value: password
+            - name: REDIS_MASTERNAME
+              value: master_name
+            - name: REDIS_PORT
+              value: "26379"
+            - name: REDIS_DB
+              value: "13"
+            - name: KAFKA_CONFIGS
+              value: |
+                  [
+                    {
+                      "id" : 0,
+                      "name": "any name",
+                      "host": "ip-1:9092, ip-2:9092"
+                    }
+                  ]
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bee-api-service
+spec:
+  selector:
+    app: bee-api
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30001
