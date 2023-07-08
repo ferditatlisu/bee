@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bee-ui-deployment
+  labels:
+    app: bee-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bee-ui
+  template:
+    metadata:
+      labels:
+        app: bee-ui
+    spec:
+      containers:
+      - name: bee-ui
+        image: tatlisu/bee:ui-0.1
+        env:
+        - name: KB_API
+          value: https://product-listing-kafka-search-api.stage.trendyol.com
+        - name: SLACK_URL
+          value: ''
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bee-ui-service
+spec:
+  selector:
+    app: bee-ui
+  type: LoadBalancer #External!!
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30000
+
+  #     KB_API: http://localhost:8082
+  #     SLACK_URL: slack://channel?team=T03Q89XFN&id=C058R54EG73
