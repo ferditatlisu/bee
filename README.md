@@ -10,6 +10,7 @@ The Bee is a useful tool for managing Kafka commands, viewing messages within to
 {{Medium link}}
 
 ## RELEASE NOTES
+
 * [Bee-api](https://github.com/ferditatlisu/bee-api/blob/main/README.md)
 * [Bee-ui](https://github.com/ferditatlisu/bee-ui/blob/main/README.md)
 * [Bee-pod master api](https://github.com/ferditatlisu/bee-pod-master/blob/main/README.md)
@@ -32,7 +33,7 @@ To prepare for deployments, it is necessary to assign specific values to environ
 
 ###
 
-## Configs
+## ENVIRONMENT VARIABLES
 
 SERVICE_ACCOUNT_NAME has to create & delete permissions.
 
@@ -70,7 +71,7 @@ roleRef:
 
 ###
 
-Example of secure Kafka
+Example of secure Kafka config
 
 ```yaml
 - name: KAFKA_CONFIGS
