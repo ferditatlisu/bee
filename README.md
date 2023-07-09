@@ -9,7 +9,7 @@
 The Bee is a useful tool for managing Kafka commands, viewing messages within topics, searching for specific keywords, and copying topics.
 {{Medium link}}
 
-## RELEASE NOTES
+## Release Notes
 
 * [Bee-api](https://github.com/ferditatlisu/bee-api/blob/main/README.md)
 * [Bee-ui](https://github.com/ferditatlisu/bee-ui/blob/main/README.md)
@@ -33,7 +33,7 @@ To prepare for deployments, it is necessary to assign specific values to environ
 
 ###
 
-## ENVIRONMENT VARIABLES
+## Environment Variables
 
 SERVICE_ACCOUNT_NAME has to create & delete permissions.
 
