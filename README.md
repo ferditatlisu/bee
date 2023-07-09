@@ -9,6 +9,13 @@
 The Bee is a useful tool for managing Kafka commands, viewing messages within topics, searching for specific keywords, and copying topics.
 {{Medium link}}
 
+## RELEASE NOTES
+* [Bee-api](https://github.com/ferditatlisu/bee-api/blob/main/README.md)
+* [Bee-ui](https://github.com/ferditatlisu/bee-ui/blob/main/README.md)
+* [Bee-pod master api](https://github.com/ferditatlisu/bee-pod-master/blob/main/README.md)
+* [Bee-search](https://github.com/ferditatlisu/bee-search/blob/main/README.md)
+* [Bee-copy](https://github.com/ferditatlisu/bee-copy/blob/main/README.md)
+
 ## Getting Started
 
 To prepare for deployments, it is necessary to assign specific values to environment keys. Once this is done, the deployment can be initiated.
@@ -32,6 +39,33 @@ SERVICE_ACCOUNT_NAME has to create & delete permissions.
 ```yaml
 - name: SERVICE_ACCOUNT_NAME
   value: bee-sa
+```
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: {NAMESPACE_SAME_WITH_ENVIRONMENT}
+  name: bee-role
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["delete", "create"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: bee-role-binding
+  namespace: {NAMESPACE_SAME_WITH_ENVIRONMENT}
+subjects:
+- kind: ServiceAccount
+  name: bee-sa
+  namespace: {NAMESPACE_SAME_WITH_ENVIRONMENT}
+roleRef:
+  kind: Role
+  name: bee-role 
+  apiGroup: rbac.authorization.k8s.io
+
 ```
 
 ###
