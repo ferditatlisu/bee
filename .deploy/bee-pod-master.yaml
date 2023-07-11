@@ -17,7 +17,7 @@ spec:
       restartPolicy: Always
       containers:
       - name: bee-pod-master
-        image: tatlisu/bee:pod-master-0.11
+        image: tatlisu/bee:pod-master-0.12
         env:
             - name: ENVIRONMENT
               value: stage
@@ -36,9 +36,9 @@ spec:
             - name: POD_MASTER_URL
               value: pod-master-url
             - name: COPY_IMAGE
-              value: tatlisu/bee:copy-0.1
+              value: tatlisu/bee:copy-0.12
             - name: SEARCH_IMAGE
-              value: tatlisu/bee:search-0.1
+              value: tatlisu/bee:search-0.12
             - name: NAMESPACE
               value: default 
             - name: SERVICE_ACCOUNT_NAME

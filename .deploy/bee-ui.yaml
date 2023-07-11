@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: bee-ui
-        image: tatlisu/bee:ui-0.1
+        image: tatlisu/bee:ui-0.12
         env:
         - name: KB_API
           value: bee-api-url
