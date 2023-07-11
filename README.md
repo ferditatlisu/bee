@@ -1,4 +1,4 @@
-<h1 align="center">Bee</h1>
+<p align="center"><img src="https://github.com/ferditatlisu/bee-ui/blob/main/src/assets/images/kafka-icon.svg" width="200" alt="Bee Logo" /></p>
 
 <p align="center">
   <a href="https://github.com/ferditatlisu/bee/blob/main/LICENSE">
