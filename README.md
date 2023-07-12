@@ -4,10 +4,14 @@
   <a href="https://github.com/ferditatlisu/bee/blob/main/LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License" />
   </a>
+  <a href="https://medium.com/@ferditatlisu/bee-the-fastest-kafka-ui-bf08b6b225b7">
+    <img src="https://img.shields.io/badge/Medium-FFFFFF" alt="Article" />
+  </a>
 </p>
 
+
+
 The Bee is a useful tool for managing Kafka commands, viewing messages within topics, searching for specific keywords, and copying topics.
-{{Medium link}}
 
 ## Release Notes
 
